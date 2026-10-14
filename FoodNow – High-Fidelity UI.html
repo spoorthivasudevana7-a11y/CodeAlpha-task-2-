@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FoodNow – High-Fidelity UI</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--p:#FF5A36;--p2:#FF8A5B;--dk:#1F1B24;--gr:#20B26B;--bg:#FFF8F4;--card:#fff;--mu:#7A7480;--ln:#F0E6E0;--ye:#FFB800;--page:#EFE9E6;--tx:#1F1B24;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--page:#141217;--tx:#f3eeea}}
+:root[data-theme="dark"]{--page:#141217;--tx:#f3eeea}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:var(--tx);font-family:Poppins,system-ui,Arial,sans-serif;padding:24px;font-size:14px}
+h1{font-size:26px;margin:0}h2{font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin:0 0 8px;color:var(--p)}
+.sub{margin:4px 0 24px;opacity:.7}
+.guide{display:flex;flex-wrap:wrap;gap:20px;margin-bottom:32px}
+.gc{background:var(--card);color:var(--dk);border-radius:16px;padding:16px;min-width:230px;flex:1}
+.sw{display:flex;gap:8px;flex-wrap:wrap}.sw div{width:46px;height:46px;border-radius:12px;font-size:8px;display:flex;align-items:end;padding:3px;color:#fff;font-weight:600}
+.g{display:flex;flex-wrap:wrap;gap:28px}
+.c{width:280px}.c h3{font-size:13px;margin:0 0 8px}
+.ph{width:280px;height:580px;background:var(--bg);color:var(--dk);border-radius:32px;border:6px solid var(--dk);padding:14px;display:flex;flex-direction:column;gap:10px;overflow:hidden;position:relative}
+.r{display:flex;align-items:center;gap:8px}.sp{justify-content:space-between}
+svg.i{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.ib{width:34px;height:34px;border-radius:12px;background:var(--card);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px #0001}
+.btn{background:linear-gradient(135deg,var(--p),var(--p2));color:#fff;border-radius:16px;padding:13px;text-align:center;font-weight:600;font-size:13px;box-shadow:0 6px 14px #ff5a3640}
+.btn.o{background:none;color:var(--p);border:1.5px solid var(--p);box-shadow:none}
+.card{background:var(--card);border-radius:16px;padding:10px;box-shadow:0 2px 10px #0000000d}
+.img{border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:34px}
+.chip{padding:6px 12px;border-radius:20px;background:var(--card);font-size:11px;font-weight:500;white-space:nowrap}
+.chip.a{background:var(--p);color:#fff}
+.mu{color:var(--mu);font-size:11px}b{font-weight:600}
+.pr{color:var(--p);font-weight:700}
+.nav{margin-top:auto;display:flex;justify-content:space-around;background:var(--card);border-radius:20px;padding:9px 4px;font-size:9px;text-align:center;color:var(--mu)}
+.nav .on{color:var(--p);font-weight:600}.nav div{display:flex;flex-direction:column;align-items:center;gap:2px}
+.qty{display:flex;align-items:center;gap:10px;background:var(--bg);border-radius:12px;padding:4px 10px;font-weight:600}
+.step{display:flex;gap:10px;align-items:center;font-size:12px}.dot{width:14px;height:14px;border-radius:50%;background:var(--gr);flex:none}.dot.n{background:var(--ln)}
+.rad{width:14px;height:14px;border-radius:50%;border:2px solid var(--p);display:inline-block;flex:none}.rad.s{background:radial-gradient(var(--p) 40%,transparent 45%)}
+</style></head><body>
+<svg width="0" height="0" style="position:absolute"><defs>
+<symbol id="pin" viewBox="0 0 24 24"><path d="M12 22s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+<symbol id="bell" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9M10 21h4"/></symbol>
+<symbol id="search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></symbol>
+<symbol id="home" viewBox="0 0 24 24"><path d="M3 11 12 3l9 8v10H3z"/></symbol>
+<symbol id="bag" viewBox="0 0 24 24"><path d="M5 7h14l-1 14H6zM9 7a3 3 0 0 1 6 0"/></symbol>
+<symbol id="user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+<symbol id="back" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+<symbol id="heart" viewBox="0 0 24 24"><path d="M12 21s-8-5-8-11a4.5 4.5 0 0 1 8-2.5A4.5 4.5 0 0 1 20 10c0 6-8 11-8 11z"/></symbol>
+<symbol id="star" viewBox="0 0 24 24"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></symbol>
+<symbol id="phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
+<symbol id="x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+</defs></svg>
+
+<h1>FoodNow · High-Fidelity UI</h1>
+<p class="sub">Mobile food delivery app — visual design system and 6 core screens</p>
+
+<div class="guide">
+<div class="gc"><h2>Color palette</h2><div class="sw">
+<div style="background:#FF5A36">Primary #FF5A36</div><div style="background:#FF8A5B">Light #FF8A5B</div><div style="background:#1F1B24">Dark #1F1B24</div><div style="background:#20B26B">Success #20B26B</div><div style="background:#FFB800">Rating #FFB800</div><div style="background:#FFF8F4;color:#1F1B24;border:1px solid #ddd">BG #FFF8F4</div></div></div>
+<div class="gc"><h2>Typography · Poppins</h2><div style="font-size:22px;font-weight:700">Heading 22/700</div><div style="font-size:15px;font-weight:600">Title 15/600</div><div style="font-size:13px">Body 13/400</div><div class="mu">Caption 11/400</div></div>
+<div class="gc"><h2>Buttons & chips</h2><div class="btn" style="margin-bottom:8px">Primary</div><div class="btn o" style="margin-bottom:8px">Secondary</div><div class="r"><span class="chip a">Active</span><span class="chip" style="background:#FFF8F4">Default</span></div></div>
+<div class="gc"><h2>Icons · 24px, 2px stroke</h2><div class="r" style="color:#1F1B24;flex-wrap:wrap"><svg class="i"><use href="#pin"/></svg><svg class="i"><use href="#bell"/></svg><svg class="i"><use href="#search"/></svg><svg class="i"><use href="#home"/></svg><svg class="i"><use href="#bag"/></svg><svg class="i"><use href="#user"/></svg><svg class="i"><use href="#heart"/></svg><svg class="i" style="color:#FFB800;fill:#FFB800"><use href="#star"/></svg></div>
+<p class="mu" style="margin-top:12px">Principles: 8px grid · 44px touch targets · one primary CTA per screen · AA contrast on text</p></div>
+</div>
+
+<div class="g">
+
+<div class="c"><h3>1 · Home</h3><div class="ph">
+<div class="r sp"><div><div class="mu">Deliver to</div><b class="r"><svg class="i" style="color:var(--p)"><use href="#pin"/></svg>Home, Hyderabad</b></div><div class="ib"><svg class="i"><use href="#bell"/></svg></div></div>
+<div class="card r" style="color:var(--mu)"><svg class="i"><use href="#search"/></svg>Search food or restaurants</div>
+<div class="img" style="height:84px;background:linear-gradient(135deg,var(--p),var(--ye));color:#fff;justify-content:space-between;padding:0 16px;font-size:40px"><div style="font-size:14px;font-weight:700;line-height:1.2">50% OFF<div style="font-size:10px;font-weight:400">on your first order</div></div>🍕</div>
+<div class="r"><span class="chip a">🍕 Pizza</span><span class="chip">🍔 Burgers</span><span class="chip">🍛 Biryani</span></div>
+<div class="r sp"><b>Nearby restaurants</b><span class="mu" style="color:var(--p)">See all</span></div>
+<div class="card r"><div class="img" style="width:62px;height:62px;background:#FFE3D6;font-size:30px">🍕</div><div><b>Napoli Pizzeria</b><div class="mu r"><svg class="i" style="width:12px;height:12px;color:var(--ye);fill:var(--ye)"><use href="#star"/></svg>4.5 · 25 min · ₹₹</div></div></div>
+<div class="card r"><div class="img" style="width:62px;height:62px;background:#FFF0C7;font-size:30px">🍛</div><div><b>Royal Biryani House</b><div class="mu r"><svg class="i" style="width:12px;height:12px;color:var(--ye);fill:var(--ye)"><use href="#star"/></svg>4.7 · 30 min · ₹₹</div></div></div>
+<div class="nav"><div class="on"><svg class="i"><use href="#home"/></svg>Home</div><div><svg class="i"><use href="#search"/></svg>Search</div><div><svg class="i"><use href="#bag"/></svg>Orders</div><div><svg class="i"><use href="#user"/></svg>Profile</div></div></div></div>
+
+<div class="c"><h3>2 · Restaurant & Menu</h3><div class="ph">
+<div class="img" style="height:130px;margin:-14px -14px 0;border-radius:0;background:linear-gradient(160deg,#FF8A5B,#C9391B);font-size:60px;align-items:flex-start;padding-top:44px">🍕
+<div class="r sp" style="position:absolute;top:14px;left:14px;right:14px"><div class="ib"><svg class="i" style="color:var(--dk)"><use href="#back"/></svg></div><div class="ib"><svg class="i" style="color:var(--p)"><use href="#heart"/></svg></div></div></div>
+<b style="font-size:17px">Napoli Pizzeria</b><div class="mu">★ 4.5 (1.2k) · 25 min · Free delivery</div>
+<div class="r"><span class="chip a">Pizzas</span><span class="chip">Sides</span><span class="chip">Drinks</span></div>
+<div class="card r sp"><div><b>Margherita</b><div class="mu">Tomato, mozzarella, basil</div><div class="pr">₹220</div></div><div class="img" style="width:62px;height:62px;background:#FFE3D6;font-size:30px">🍕</div></div>
+<div class="card r sp"><div><b>Garlic Bread</b><div class="mu">Toasted with herb butter</div><div class="pr">₹120</div></div><div class="img" style="width:62px;height:62px;background:#FFF0C7;font-size:30px">🥖</div></div>
+<div class="btn r sp" style="margin-top:auto"><span>2 items</span><span>View cart · ₹340</span></div></div></div>
+
+<div class="c"><h3>3 · Item Detail</h3><div class="ph">
+<div class="r sp"><div class="ib"><svg class="i"><use href="#x"/></svg></div><div class="ib"><svg class="i" style="color:var(--p)"><use href="#heart"/></svg></div></div>
+<div class="img" style="height:150px;background:linear-gradient(135deg,#FFE3D6,#FFC9A8);font-size:90px">🍕</div>
+<div class="r sp"><b style="font-size:17px">Margherita</b><span class="pr">₹220</span></div>
+<div class="mu">Classic wood-fired pizza with fresh basil. Contains: gluten, dairy.</div>
+<b>Size</b>
+<div class="card r sp"><span class="r"><span class="rad s"></span>Regular</span><span class="mu">Included</span></div>
+<div class="card r sp"><span class="r"><span class="rad"></span>Large</span><span class="mu">+₹60</span></div>
+<div class="r" style="margin-top:auto"><div class="qty">− 1 +</div><div class="btn" style="flex:1">Add to cart · ₹220</div></div></div></div>
+
+<div class="c"><h3>4 · Cart</h3><div class="ph">
+<div class="r"><div class="ib"><svg class="i"><use href="#back"/></svg></div><b style="font-size:16px">Your cart</b></div>
+<div class="card r sp"><div class="r"><div class="img" style="width:46px;height:46px;background:#FFE3D6;font-size:24px">🍕</div><div><b>Margherita</b><div class="pr">₹220</div></div></div><div class="qty">− 1 +</div></div>
+<div class="card r sp"><div class="r"><div class="img" style="width:46px;height:46px;background:#FFF0C7;font-size:24px">🥖</div><div><b>Garlic Bread</b><div class="pr">₹120</div></div></div><div class="qty">− 1 +</div></div>
+<div class="card r" style="border:1.5px dashed var(--p);color:var(--p);box-shadow:none"><b>🏷 Apply coupon</b></div>
+<div class="card"><div class="r sp mu"><span>Subtotal</span><span>₹340</span></div><div class="r sp mu"><span>Delivery</span><span style="color:var(--gr)">Free</span></div><div class="r sp mu"><span>Taxes</span><span>₹17</span></div><hr style="border:0;border-top:1px solid var(--ln)"><div class="r sp"><b>Total</b><b class="pr" style="font-size:16px">₹357</b></div></div>
+<div class="btn" style="margin-top:auto">Proceed to checkout</div></div></div>
+
+<div class="c"><h3>5 · Checkout</h3><div class="ph">
+<div class="r"><div class="ib"><svg class="i"><use href="#back"/></svg></div><b style="font-size:16px">Checkout</b></div>
+<div class="card"><div class="mu">Delivery address</div><div class="r sp"><b class="r"><svg class="i" style="color:var(--p)"><use href="#pin"/></svg>Home · 12 Main St</b><span style="color:var(--p);font-size:11px">Change</span></div></div>
+<div class="card"><div class="mu" style="margin-bottom:6px">Delivery time</div><div class="r"><span class="chip a">Now · 25 min</span><span class="chip" style="background:var(--bg)">Schedule</span></div></div>
+<div class="card"><div class="mu" style="margin-bottom:6px">Payment method</div>
+<div class="r sp" style="padding:4px 0"><span class="r"><span class="rad s"></span>UPI</span><span class="mu">••• @upi</span></div>
+<div class="r" style="padding:4px 0"><span class="rad"></span>Credit / Debit card</div>
+<div class="r" style="padding:4px 0"><span class="rad"></span>Cash on delivery</div></div>
+<div class="r sp card"><span>Contactless delivery</span><span style="width:36px;height:20px;border-radius:10px;background:var(--gr);position:relative"><i style="position:absolute;right:2px;top:2px;width:16px;height:16px;border-radius:50%;background:#fff"></i></span></div>
+<div class="btn" style="margin-top:auto">Place order · ₹357</div></div></div>
+
+<div class="c"><h3>6 · Order Tracking</h3><div class="ph">
+<div class="r"><div class="ib"><svg class="i"><use href="#back"/></svg></div><b style="font-size:16px">Order #1042</b></div>
+<div class="img" style="height:150px;background:repeating-linear-gradient(45deg,#E9F3EC,#E9F3EC 12px,#DDEBE1 12px,#DDEBE1 24px);position:relative;font-size:26px"><span style="position:absolute;left:40px;bottom:30px">🏍️</span><span style="position:absolute;right:50px;top:30px">📍</span></div>
+<div><div class="mu">Estimated arrival</div><b style="font-size:20px">18 min</b></div>
+<div class="card" style="display:flex;flex-direction:column;gap:8px">
+<div class="step"><span class="dot"></span>Order confirmed</div><div class="step"><span class="dot"></span>Preparing your food</div><div class="step" style="font-weight:600"><span class="dot n" style="border:3px solid var(--p);background:#fff"></span>Out for delivery</div><div class="step mu"><span class="dot n"></span>Delivered</div></div>
+<div class="card r sp"><div class="r"><div class="img" style="width:38px;height:38px;background:var(--p);color:#fff;font-size:13px;border-radius:50%;font-weight:600">RK</div><div><b>Ravi K.</b><div class="mu">★ 4.9 · Your rider</div></div></div><div class="ib" style="background:var(--gr);color:#fff"><svg class="i"><use href="#phone"/></svg></div></div>
+<div class="btn o" style="margin-top:auto">Need help?</div></div></div>
+
+</div></body></html>
